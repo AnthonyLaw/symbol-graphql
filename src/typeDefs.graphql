@@ -1,0 +1,50 @@
+type Block {
+    meta: BlockMetaDTO
+    block: BlockDTO
+    signerAccount: AccountInfoDTO
+    beneficiaryAccount: AccountInfoDTO
+    transactions(pageInfo: pageInfo): TransactionPage
+    statementsResolutionsAddress(pageInfo: pageInfo): ResolutionStatementPage
+    statementsResolutionsMosaic(pageInfo: pageInfo): ResolutionStatementPage
+    receipts(pageInfo: pageInfo): TransactionStatementPage
+}
+
+type BlockDTO {
+    size: Int!
+    signature: String!
+    signerPublicKey: String!
+    version: Int!
+    network: Int!
+    type: Int!
+    height: String!
+    timestamp: String!
+    difficulty: String!
+    proofGamma: String!
+    proofVerificationHash: String!
+    proofScalar: String!
+    previousBlockHash: String!
+    transactionsHash: String!
+    receiptsHash: String!
+    stateHash: String!
+    beneficiaryAddress: String!
+    feeMultiplier: Int!
+    votingEligibleAccountsCount: Int
+    harvestingEligibleAccountsCount: String
+    totalVotingBalance: String
+    previousImportanceBlockHash: String
+}
+
+input pageInfo {
+    pageSize: Int = 10
+    pageNumber: Int = 1
+}
+
+type RentalFee {
+    effectiveChildNamespaceRentalFee: String!
+    effectiveMosaicRentalFee: String!
+    effectiveRootNamespaceRentalFeePerBlock: String!
+}
+
+extend type Query {
+    block(height: String!): Block
+}

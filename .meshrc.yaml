@@ -1,0 +1,11 @@
+sources:
+  - name: Symbol
+    handler:
+      openapi:
+        source: ./symbol-openapi3.yml
+additionalTypeDefs:
+  - ./src/typeDefs.graphql
+require:
+  - ts-node/register/transpile-only
+additionalResolvers:
+  - ./src/additional-resolvers.ts

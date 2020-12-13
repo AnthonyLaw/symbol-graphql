@@ -1,0 +1,37 @@
+{
+  "name": "symbol-graphql",
+  "version": "0.1.0",
+  "description": "Graphql server use for symbol blockchain.",
+  "repository": "https://github.com/AnthonyLaw/symbol-graphql",
+  "author": "Anthony Law <anthony.law1015@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon",
+    "start": "yarn graphql-mesh serve",
+    "mesh:generated": "yarn graphql-mesh typescript --output ./generated/mesh.ts",
+    "prettier": "prettier --write ./src",
+    "lint": "eslint --cache src/ --ext .ts",
+    "lint:fix": "eslint src/ --ext .ts --fix",
+    "style:fix": "npm run prettier && npm run lint:fix"
+  },
+  "dependencies": {
+    "@graphql-mesh/cli": "^0.11.13",
+    "@graphql-mesh/openapi": "^0.10.6",
+    "@graphql-tools/schema": "^7.1.2",
+    "graphql": "^15.4.0",
+    "moment": "^2.29.1",
+    "symbol-sdk": "^0.21.0",
+    "typescript": "^4.1.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6",
+    "ts-node": "^9.1.1",
+    "prettier-plugin-organize-imports": "^1.1.1",
+    "prettier": "^2.2.1",
+    "@typescript-eslint/eslint-plugin": "^4.9.0",
+    "@typescript-eslint/parser": "^4.9.0",
+    "eslint": "^7.15.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-prettier": "^3.2.0"
+  }
+}
