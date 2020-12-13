@@ -12,8 +12,42 @@ Playground is UI tools for user write query to interact with the graphql server.
 
 :star2:	We can write one query and retrieve all the data we needed in a single request from client (web/mobile) to graphql server.
 
-In this demo: we request block Info by height and nested request the signer account info, and transactions happen in that block, just in a single query.
+In this demo: we request block Info by height and nested request the signer account info, and receipts happen in that block, just in a single query.
 
+Demo : http://139.162.19.139:4000/
+
+```
+# Write your query or mutation here
+query blockInfo {
+  block(height:"2"){
+    block{
+      signerPublicKey
+    }
+    signerAccount{
+      account{
+        mosaics{
+          amount
+          id
+        }
+      }
+    }
+    receipts(pageInfo:{
+      pageSize: 25
+      pageNumber: 1
+    }){
+      data{
+        statement{
+          receipts
+        }
+      }
+      pagination{
+        pageNumber
+        pageSize
+      }
+    }
+  }
+}
+```
 
 ### Directory Structure
 
