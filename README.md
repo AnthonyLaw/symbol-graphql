@@ -101,3 +101,39 @@ yarn dev
 
 [github-symbol-openapi]: https://github.com/nemtech/symbol-openapi
 [github-graphql-mesh]: https://github.com/urigo/graphql-mesh
+
+
+### Usage on client
+
+This is an example of using [xembook/nem2-browserify](https://github.com/xembook/nem2-browserify) converted from symbol-sdk with browserify.
+
+```html
+<script src="https://xembook.github.io/nem2-browserify/apollo-client-2.6.10.js"></script>
+<script src="https://xembook.github.io/nem2-browserify/apollo-link-http-1.5.17.js"></script>
+<script src="https://xembook.github.io/nem2-browserify/apollo-cache-inmemory-1.6.6.js"></script>
+<script src="https://xembook.github.io/nem2-browserify/graphql-tag-2.11.0.js"></script>
+<script>
+
+apollo = require("/node_modules/apollo-client");
+cache = require("/node_modules/apollo-cache-inmemory");
+link = require("/node_modules/apollo-link-http");
+gql = require("/node_modules/graphql-tag");
+
+client = new apollo.ApolloClient({
+  cache: new cache.InMemoryCache(),
+  link: new link.HttpLink({
+    uri: 'http://139.162.19.139:4000/graphql',
+  }),
+});
+
+client.query({query: gql`
+  query BlockInfo{
+    block(height:"1000"){
+      block{timestamp}
+    }
+  }
+`})
+.then(info=>console.log(info));
+</script>
+```
+
