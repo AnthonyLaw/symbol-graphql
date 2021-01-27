@@ -103,11 +103,11 @@ yarn dev
 [github-graphql-mesh]: https://github.com/urigo/graphql-mesh
 
 
-### Usage on the client
+### Usage on client
 
 This is an example of using [xembook/nem2-browserify](https://github.com/xembook/nem2-browserify) converted from symbol-sdk with browserify.
 
-```js
+```html
 <script src="https://xembook.github.io/nem2-browserify/apollo-client-2.6.10.js"></script>
 <script src="https://xembook.github.io/nem2-browserify/apollo-link-http-1.5.17.js"></script>
 <script src="https://xembook.github.io/nem2-browserify/apollo-cache-inmemory-1.6.6.js"></script>
